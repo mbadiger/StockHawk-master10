@@ -1,0 +1,14 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[branch "master"]
+[remote "github"]
+	url = https://github.com/mbadiger/StockHawk-master.git
+	fetch = +refs/heads/*:refs/remotes/github/*
+[remote "origin"]
+	url = git@github.com:mbadiger/https://github.com/mbadiger/StockHawk-master.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
