@@ -132,7 +132,7 @@ public class ChartFragment extends Fragment implements LoaderManager.LoaderCallb
         String sortOrder;
 
 
-        if (mParam1_tabtitle.equals("WEEK")) {
+        if (mParam1_tabtitle.equals(getString(R.string.WEEK))) {
             sortOrder = HistoryColumns.DATE + " DESC LIMIT 6 ";
         } else {
             sortOrder = HistoryColumns.DATE + " DESC LIMIT 20 ";
@@ -243,7 +243,7 @@ public class ChartFragment extends Fragment implements LoaderManager.LoaderCallb
 
                 label = date;
 
-                if (mParam1_tabtitle.equals("MONTH")) {
+                if (mParam1_tabtitle.equals(getString(R.string.MONTH))) {
 
                     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     Date stockDate;

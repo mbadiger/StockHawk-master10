@@ -19,6 +19,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.InputType;
 import android.view.Gravity;
@@ -48,7 +49,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
    */
 
   /**
-   * Used to store the last screen title. For use in {@link #restoreActionBar()}.
+   * Used to store the last screen title. For use in .
    */
   private CharSequence mTitle;
   private Intent mServiceIntent;
@@ -81,6 +82,10 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
       } else{
         networkToast();
       }
+
+      Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+      setSupportActionBar(myToolbar);
+
     }
     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -133,7 +138,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
                               new String[]{input.toString()}, null);
                       if (c.getCount() != 0) {
                         Toast toast =
-                                Toast.makeText(MyStocksActivity.this, "This stock is already saved!",
+                                Toast.makeText(MyStocksActivity.this, R.string.stock_exists,
                                         Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
                         toast.show();
@@ -190,9 +195,9 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
       //toast.show();
 
       AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-      alertDialog.setTitle("Alert");
-      alertDialog.setMessage("Symbol couldn't be added");
-      alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+      alertDialog.setTitle(getString(R.string.error_dialog));
+      alertDialog.setMessage(getString(R.string.error_stock_add));
+      alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, getString(R.string.btn_ok),
               new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                   dialog.dismiss();
@@ -212,17 +217,17 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     Toast.makeText(mContext, getString(R.string.network_toast), Toast.LENGTH_SHORT).show();
   }
 
-  public void restoreActionBar() {
+  /*public void restoreActionBar() {
     ActionBar actionBar = getSupportActionBar();
     actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
     actionBar.setDisplayShowTitleEnabled(true);
     actionBar.setTitle(mTitle);
   }
-
+*/
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
       getMenuInflater().inflate(R.menu.my_stocks, menu);
-      restoreActionBar();
+      //restoreActionBar();
       return true;
   }
 

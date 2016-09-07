@@ -20,4 +20,10 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="empty_forecast_list">Stock Information Not Available!</string>
+    <string name="WEEK">WEEK</string>
+    <string name="MONTH">MONTH</string>
+    <string name="stock_exists">This stock is already saved!</string>
+    <string name="error_dialog">Alert</string>
+    <string name="error_stock_add">Symbol couldn\'t be added</string>
+    <string name="btn_ok">OK</string>
 </resources>
